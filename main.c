@@ -1,16 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 int main()
 {
-    char questions[][100] = {
+    char questions[][200] = {
         "1. What command do you use to output data to the screen?",
         "2. A Syntax Error is... ?",
         "3. A memory location that holds a single letter or number is called _________.",
         "4. A short section of code written to complete a task.",
         "5. What dose this equation mean? a != t"
     };
-    char choices[][100] = {
+    char choices[][200] = {
         "A. Cout<<", "B. Cout>>", "C. Cin<<", "D. Output>>",
         "A. An error you will never find.", "B. An error you find at the end when the program gives out a wrong value due to logic error.", "C. An error caused by language rules being broken.", "D. An error due to user error",
         "A. Double", "B. Int", "C. Char", "D. Word",
@@ -34,11 +35,30 @@ int main()
         printf("%s\n", questions[i]);
         printf("*******************\n\n");
 
-        for(int j = i * 4; j < (i * 4) + 4; j++)
+        for(int j = (i * 4); j < (i * 4) + 4; j++)
         {
             printf("%s\n", choices[j]);
         }
+
+        printf("Your Answer: ");
+        scanf("%c", &guess);
+        getchar();
+
+        guess = toupper(guess);
+
+        if(guess == answers[i])
+        {
+            printf("\nCORRECT!\n");
+            score++;
+        }
+        else
+        {
+            printf("\nWRONG!\n");
+            printf("The correct answer is %c.\n", answers[i]);
+        }
     }
+
+    printf("\n===== YOUR FINAL SCORE: %d/%d =====\n", score, numberOfQuestions);
 
     return 0;
 }
