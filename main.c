@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <string.h>
 
 int main()
 {
@@ -26,14 +27,30 @@ int main()
 
     char guess;
     int score;
+    int questionLength;
 
     printf("\n=====================\n===== QUIZ GAME =====\n=====================\n\n");
 
     for(int i = 0; i < numberOfQuestions; i++)
     {
-        printf("\n*******************\n");
+        questionLength = strlen(questions[i]);
+        printf("\n");
+        while(questionLength != 0)
+        {
+            printf("*");
+            questionLength--;
+        }
+        printf("\n");
+        
         printf("%s\n", questions[i]);
-        printf("*******************\n\n");
+
+        questionLength = strlen(questions[i]);
+        while(questionLength != 0)
+        {
+            printf("*");
+            questionLength--;
+        }
+        printf("\n\n");
 
         for(int j = (i * 4); j < (i * 4) + 4; j++)
         {
