@@ -19,7 +19,7 @@ int main()
     };
     char answers[5] = {'A', 'C', 'C', 'D', 'B'};
 
-    // 500 is the total used memory, 100 is the allocated memory for an array item
+    // 500 is the total used memory (for 5 questions), 100 is the allocated memory for an array item
     // So, 500 / 100 = 5 number of questions
     int numberOfQuestions = sizeof(questions)/sizeof(questions[0]);
 
@@ -30,7 +30,14 @@ int main()
 
     for(int i = 0; i < numberOfQuestions; i++)
     {
+        printf("\n*******************\n");
         printf("%s\n", questions[i]);
+        printf("*******************\n\n");
+
+        for(int j = i * 4; j < (i * 4) + 4; j++)
+        {
+            printf("%s\n", choices[j]);
+        }
     }
 
     return 0;
