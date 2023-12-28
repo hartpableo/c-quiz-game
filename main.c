@@ -41,7 +41,7 @@ int main()
             questionLength--;
         }
         printf("\n");
-        
+
         printf("%s\n", questions[i]);
 
         questionLength = strlen(questions[i]);
@@ -59,9 +59,8 @@ int main()
 
         printf("Your Answer: ");
         scanf("%c", &guess);
-        getchar();
-
-        guess = toupper(guess);
+	guess = toupper(guess);
+	getchar();
 
         if(guess == answers[i])
         {
